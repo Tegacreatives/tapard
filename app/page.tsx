@@ -1,10 +1,11 @@
 import Categories from "@/components/Categories";
 import Container from "@/components/Container";
 import EmptyState from "@/components/EmptyState";
+import getListings from "./actions/getListings";
 
-export default function Home() {
-  const isEmpty = true;
-  if (isEmpty) {
+export default async function Home() {
+  const listings = await getListings();
+  if (listings.length === 0) {
     return (
       <div className="pt-[7rem]">
         <Categories />
@@ -28,12 +29,9 @@ export default function Home() {
             gap-8
           "
         >
-          <h1>Hello</h1>
-          <h1>Hello</h1>
-          <h1>Hello</h1>
-          <h1>Hello</h1>
-          <h1>Hello</h1>
-          <h1>Hello</h1>
+          {listings.map((listing: any) => (
+            <div>{listing.title}</div>
+          ))}
         </div>
       </Container>
     </div>
