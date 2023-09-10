@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import React, { useCallback, useState } from "react";
-import { AiOutlineMenu} from 'react-icons/ai'
+import { AiOutlineMenu } from "react-icons/ai";
 import Avatar from "../Avatar";
 import MenuItem from "./MenuItem";
 import useRegisterModal from "@/app/hooks/useRegisterModal";
@@ -11,29 +11,28 @@ import { signOut } from "next-auth/react";
 import { SafeUser } from "@/app/types";
 import useRentModal from "@/app/hooks/useRentModal";
 
-interface UserMenuProps{
-  currentUser?: User | null
+interface UserMenuProps {
+  currentUser?: User | null;
 }
 
-const UserMenu: React.FC<UserMenuProps> = ({currentUser}) => {
+const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
   const [isOpen, setIsOpen] = useState(false);
   const loginModal = useLoginModal();
   const rentModal = useRentModal();
   const registerModal = useRegisterModal();
 
-
   //Toggles the navigation menu
   const toogleOpen = useCallback(() => {
     setIsOpen((value) => !value);
-  }, [])
+  }, []);
 
   const onRent = useCallback(() => {
-    if (!currentUser) {
+    //Remember to change this
+    if (currentUser) {
       return loginModal.onOpen();
     }
 
-     rentModal.onOpen();
-
+    rentModal.onOpen();
   }, [loginModal, currentUser, rentModal]);
 
   return (
@@ -45,26 +44,23 @@ const UserMenu: React.FC<UserMenuProps> = ({currentUser}) => {
         >
           Sewo your house
         </div>
-        
+
         <div className="hidden md:block border-neutral-200 border-[1px] p-2 rounded-full">
-            <Image
-            src="/images/flag.png"
-            height="25"
-            width="25"
-            alt="Flag"
-             />
+          <Image src="/images/flag.png" height="25" width="25" alt="Flag" />
         </div>
         <div
           onClick={toogleOpen}
           className="b-4 p-3 md:py-1 md:px-[5px] border-[1px] border-neutral-200 flex flex-row items-center gap-3 rounded-full cursor-pointer hover:shadow-md transition"
         >
-            <div className="hidden md:flex items-center space-x-1">
+          <div className="hidden md:flex items-center space-x-1">
             <Avatar src={currentUser?.image} />
-            <h4 className="text-sm font-semibold ">{currentUser?.name? currentUser.name : ''}</h4>
-            </div>
-            <div className="md:pr-[10px]">
+            <h4 className="text-sm font-semibold ">
+              {currentUser?.name ? currentUser.name : ""}
+            </h4>
+          </div>
+          <div className="md:pr-[10px]">
             <AiOutlineMenu size={20} />
-            </div>
+          </div>
         </div>
       </div>
 
@@ -73,20 +69,19 @@ const UserMenu: React.FC<UserMenuProps> = ({currentUser}) => {
           <div className="flex flex-col cursor-pointer">
             {currentUser ? (
               <>
-              <MenuItem onClick={loginModal.onOpen} label="My Reservations" />
-              <MenuItem onClick={loginModal.onOpen} label="My Properties" />
-              <MenuItem onClick={loginModal.onOpen} label="My Favourites" />
-              <MenuItem onClick={onRent} label="Add a property" />
-              <hr />
-              <MenuItem onClick={() => signOut()} label="Sign out" />
+                <MenuItem onClick={loginModal.onOpen} label="My Reservations" />
+                <MenuItem onClick={loginModal.onOpen} label="My Properties" />
+                <MenuItem onClick={loginModal.onOpen} label="My Favourites" />
+                <MenuItem onClick={onRent} label="Add a property" />
+                <hr />
+                <MenuItem onClick={() => signOut()} label="Sign out" />
               </>
             ) : (
               <>
-              <MenuItem onClick={loginModal.onOpen} label="Login" />
-              <MenuItem onClick={registerModal.onOpen} label="Sign up" />
+                <MenuItem onClick={loginModal.onOpen} label="Login" />
+                <MenuItem onClick={registerModal.onOpen} label="Sign up" />
               </>
             )}
-              
           </div>
         </div>
       )}
