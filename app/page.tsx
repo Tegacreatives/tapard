@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import Categories from "@/components/Categories";
 import Container from "@/components/Container";
 import EmptyState from "@/components/EmptyState";
