@@ -269,7 +269,7 @@ const RentModal = () => {
     <Modal
       title="List Your home"
       isOpen={rentModal.isOpen}
-      onCLose={rentModal.onClose}
+      onClose={rentModal.onClose}
       onSubmit={handleSubmit(onSubmit)}
       actionLabel={actionLabel}
       secondaryActionLabel={secondaryActionLabel}

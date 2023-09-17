@@ -12,7 +12,6 @@ import Button from "../Button";
 import { signIn } from "next-auth/react";
 import useLoginModal from "@/app/hooks/useLoginModal";
 
-
 const RegisterModal = () => {
   const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
@@ -39,7 +38,7 @@ const RegisterModal = () => {
         registerModal.onClose();
       })
       .catch((error) => {
-        toast.error('Something went wrong.');
+        toast.error("Something went wrong.");
       })
       .finally(() => {
         setIsLoading(false);
@@ -49,7 +48,7 @@ const RegisterModal = () => {
   const toggle = useCallback(() => {
     registerModal.onClose();
     loginModal.onOpen();
-  }, [loginModal, registerModal])
+  }, [loginModal, registerModal]);
 
   const bodyContent = (
     <div className="flex flex-col gap-4">
@@ -86,12 +85,12 @@ const RegisterModal = () => {
     <div className="flex flex-col gap-4 mt-3">
       <hr />
       <Button
-        outline 
+        outline
         label="Continue with Google"
         icon={FcGoogle}
-        onClick={() => signIn("google")} 
+        onClick={() => signIn("google")}
       />
-      <div 
+      <div
         className="
           text-neutral-500 
           text-center 
@@ -99,26 +98,30 @@ const RegisterModal = () => {
           font-light
         "
       >
-        <p>Already have an account?
-          <span 
-            onClick={toggle} 
+        <p>
+          Already have an account?
+          <span
+            onClick={toggle}
             className="
               text-neutral-800
               cursor-pointer 
               hover:underline
             "
-            > Log in</span>
+          >
+            {" "}
+            Log in
+          </span>
         </p>
       </div>
     </div>
-  )
+  );
   return (
     <Modal
       disabled={isLoading}
       isOpen={registerModal.isOpen}
       title="Register"
       actionLabel="Continue"
-      onCLose={registerModal.onClose}
+      onClose={registerModal.onClose}
       onSubmit={handleSubmit(onSubmit)}
       body={bodyContent}
       footer={footerContent}

@@ -5,7 +5,7 @@ import Button from "../Button";
 
 interface ModalProps {
   isOpen?: boolean;
-  onCLose: () => void;
+  onClose: () => void;
   onSubmit: () => void;
   title?: string;
   body?: React.ReactElement;
@@ -18,7 +18,7 @@ interface ModalProps {
 
 const Modal: React.FC<ModalProps> = ({
   isOpen,
-  onCLose,
+  onClose,
   onSubmit,
   title,
   body,
@@ -40,9 +40,9 @@ const Modal: React.FC<ModalProps> = ({
 
     setShowModel(false);
     setTimeout(() => {
-      onCLose();
+      onClose();
     }, 300);
-  }, [disabled, onCLose]);
+  }, [disabled, onClose]);
 
   const handleSubmit = useCallback(() => {
     if (disabled) {

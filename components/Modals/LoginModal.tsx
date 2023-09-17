@@ -34,28 +34,27 @@ const LoginModal = () => {
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     setIsLoading(true);
 
-     signIn('credentials', {
+    signIn("credentials", {
       ...data,
-       redirect: false
-      })
-      .then((callback) => {
-        setIsLoading(false);
-        if(callback?.ok){
-          toast.success("Logged In Successfully");
-          router.refresh();
-          loginModal.onClose()
-        }  
+      redirect: false,
+    }).then((callback) => {
+      setIsLoading(false);
+      if (callback?.ok) {
+        toast.success("Logged In Successfully");
+        router.refresh();
+        loginModal.onClose();
+      }
 
-        if(callback?.error){
-          toast.error(callback.error);
-        }
-      })
+      if (callback?.error) {
+        toast.error(callback.error);
+      }
+    });
   };
 
   const toggle = useCallback(() => {
     loginModal.onClose();
     registerModal.onOpen();
-  }, [loginModal, registerModal])
+  }, [loginModal, registerModal]);
 
   const bodyContent = (
     <div className="flex flex-col gap-4">
@@ -84,12 +83,12 @@ const LoginModal = () => {
     <div className="flex flex-col gap-4 mt-3">
       <hr />
       <Button
-        outline 
+        outline
         label="Continue with Google"
         icon={FcGoogle}
-        onClick={() => signIn("google")} 
+        onClick={() => signIn("google")}
       />
-      <div 
+      <div
         className="
           text-neutral-500 
           text-center 
@@ -97,26 +96,30 @@ const LoginModal = () => {
           font-light
         "
       >
-        <p>Dont have an accout?
-          <span 
-            onClick={toggle} 
+        <p>
+          Dont have an accout?
+          <span
+            onClick={toggle}
             className="
               text-neutral-800
               cursor-pointer 
               hover:underline
             "
-            > Sign Up</span>
+          >
+            {" "}
+            Sign Up
+          </span>
         </p>
       </div>
     </div>
-  )
+  );
   return (
     <Modal
       disabled={isLoading}
       isOpen={loginModal.isOpen}
       title="Login"
       actionLabel="Continue"
-      onCLose={loginModal.onClose}
+      onClose={loginModal.onClose}
       onSubmit={handleSubmit(onSubmit)}
       body={bodyContent}
       footer={footerContent}
