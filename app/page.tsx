@@ -1,7 +1,8 @@
 import Categories from "@/components/Categories";
-
+import dynamic from "next/dynamic";
 import { IListingsParams } from "./actions/getListings";
-import Listings from "@/components/listings/Listings";
+
+const Listings = dynamic(() => import("@/components/listings/Listings"));
 
 interface HomeProps {
   searchParams: IListingsParams;
