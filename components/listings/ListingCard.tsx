@@ -97,7 +97,8 @@ const ListingCard: React.FC<ListingCardProps> = ({
               transition
             "
             src={data.imageSrc}
-            alt="Listing"
+            alt={data.id}
+            priority
           />
           <div
             className="
