@@ -134,7 +134,10 @@ const ListingCard: React.FC<ListingCardProps> = ({
             </div>
             <div className="flex space-x-1 items-center justify-between">
               <BsPeopleFill />
-              <div className="text-[12px]">{data.guestCount}</div>
+              <div className="text-[12px]">
+                {" "}
+                1 {data.guestCount > 1 && <>- {data.guestCount}</>}
+              </div>
             </div>
           </div>
           {/* Listing Price */}
