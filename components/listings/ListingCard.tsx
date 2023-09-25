@@ -128,10 +128,10 @@ const ListingCard: React.FC<ListingCardProps> = ({
             </div>
             <div className="flex space-x-2 items-center">
               <BsFillStarFill className="fill-yellow-500" />
-              <div className="text-[12px]">4.73</div>
+              <div className="text-sm">4.73</div>
             </div>
           </div>
-          <div className="font-semibold text-lg text-[12px] text-neutral-500">
+          <div className="font-semibold text-sm text-neutral-500 truncate">
             {location?.region}, {location?.label}
           </div>
         </div>
@@ -140,15 +140,15 @@ const ListingCard: React.FC<ListingCardProps> = ({
           <div className="border flex items-start space-x-2 border-neutral-gray-400 px-[9px] py-1 rounded-full">
             <div className="flex space-x-1 items-center justify-between">
               <MdBed />
-              <div className="text-[12px]">{data.roomCount}</div>
+              <div className="text-sm">{data.roomCount}</div>
             </div>
             <div className="flex space-x-1 items-center justify-between">
               <BiSolidBath />
-              <div className="text-[12px]">{data.bathroomCount}</div>
+              <div className="text-sm">{data.bathroomCount}</div>
             </div>
             <div className="flex space-x-1 items-center justify-between">
               <BsPeopleFill />
-              <div className="text-[12px]">
+              <div className="text-sm">
                 {" "}
                 1 {data.guestCount > 1 && <>- {data.guestCount}</>}
               </div>
@@ -156,14 +156,12 @@ const ListingCard: React.FC<ListingCardProps> = ({
           </div>
           {/* Listing Price */}
           <div className="flex flex-row items-center space-x-1">
-            <div className="text-[13px] text-red-500 line-through">$2,000</div>
+            <div className="text-sm text-red-500 line-through">$2,000</div>
             <div>
               <div className="flex flex-row items-center gap-[3px]">
                 <div className="font-semibold">${price}</div>
                 {!reservation && (
-                  <div className="font-light text-[12px] text-neutral-500">
-                    /n
-                  </div>
+                  <div className="font-light text-sm text-neutral-500">/n</div>
                 )}
               </div>
             </div>

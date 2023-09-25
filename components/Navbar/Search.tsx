@@ -53,8 +53,8 @@ const Search = () => {
       className="border-[1px] w-full md:w-auto py-2 rounded-full shadow-sm hover:shadow-md transition cursor-pointer"
     >
       <div className="flex flex-row items-center justify-between">
-        <div className="text-sm font-semibold pl-6 pr-20">{locationLabel}</div>
-        <div className="hidden sm:block text-sm font-semibold px-6 border-x-[1px] flex-1 text-center text-gray-500">
+        <div className="text-sm font-normal pl-6 pr-20">{locationLabel}</div>
+        <div className="hidden sm:block text-sm font-normal px-6 border-x-[1px] flex-1 text-center text-gray-500">
           {durationLabel}
         </div>
         <div className="text-sm pl-6 pr-2 text-gray-500 flex flex-row items-center gap-3">
