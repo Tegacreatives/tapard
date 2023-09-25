@@ -1,7 +1,6 @@
-export const dynamic = "force-dynamic";
 import Categories from "@/components/Categories";
 
-import getListings, { IListingsParams } from "./actions/getListings";
+import { IListingsParams } from "./actions/getListings";
 import Listings from "@/components/listings/Listings";
 
 interface HomeProps {
