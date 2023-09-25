@@ -102,7 +102,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
           <div
             className="
             absolute
-            top-3
+            top-2
             right-3
           "
           >
