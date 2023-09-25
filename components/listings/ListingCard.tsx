@@ -123,7 +123,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
         {/* Location */}
         <div className="">
           <div className="flex items-center justify-between space-x-5">
-            <div className="font-light text-lg leading-3 capitalize truncate py-1">
+            <div className="font-semibold text-lg leading-3 capitalize truncate py-1">
               {data.title}
             </div>
             <div className="flex space-x-2 items-center">
@@ -131,7 +131,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
               <div className="text-sm">4.73</div>
             </div>
           </div>
-          <div className="font-semibold text-sm text-neutral-500 truncate">
+          <div className="font-semibold text-sm text-neutral-400 truncate">
             {location?.region}, {location?.label}
           </div>
         </div>
