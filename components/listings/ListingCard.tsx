@@ -110,8 +110,15 @@ const ListingCard: React.FC<ListingCardProps> = ({
           </div>
         </div>
         {/* Category */}
-        <div className="bg-gray-200 text-center px-[9px] py-1 max-w-max font-light text-[12px] rounded-full mx-1">
-          {reservationDate || data.category}
+        <div className="mx-1 flex space-x-1">
+          <div className="bg-gray-200 text-center px-[9px] py-1 max-w-max font-light text-[12px] rounded-full">
+            {reservationDate || data.category}
+          </div>
+          {data.bathroomCount == 1 && (
+            <div className="bg-gray-200 text-center px-[9px] py-1 max-w-max font-light text-[12px] rounded-full">
+              One bath
+            </div>
+          )}
         </div>
         {/* Location */}
         <div className="">
@@ -149,7 +156,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
           </div>
           {/* Listing Price */}
           <div className="flex flex-row items-center space-x-1">
-            <div className="text-[13px] text-red-500 line-through">$90</div>
+            <div className="text-[13px] text-red-500 line-through">$2,000</div>
             <div>
               <div className="flex flex-row items-center gap-[3px]">
                 <div className="font-semibold">${price}</div>
