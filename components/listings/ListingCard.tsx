@@ -75,11 +75,13 @@ const ListingCard: React.FC<ListingCardProps> = ({
       onClick={() => router.push(`/listings/${data.id}`)}
       className="col-span-1 cursor-pointer group"
     >
-      <div className="flex flex-col gap-2 w-full h-[80%]">
+      <div className="flex flex-col space-y-3 h-full lg:h-[40vh]">
+        {/* Image */}
         <div
           className="
             aspect-square 
             w-full
+            h-[80%]
             relative 
             overflow-hidden 
             rounded-xl
@@ -107,19 +109,24 @@ const ListingCard: React.FC<ListingCardProps> = ({
             <HeartButton listingId={data.id} currentUser={currentUser} />
           </div>
         </div>
-
+        {/* Category */}
         <div className="bg-gray-200 text-center px-[9px] py-1 max-w-max font-light text-[12px] rounded-full mx-1">
           {reservationDate || data.category}
         </div>
-        <div className="flex items-center justify-between">
-          <div className="font-light text-lg">{data.title}</div>
-          <div className="flex space-x-2 items-center">
-            <BsFillStarFill className="fill-yellow-500" />
-            <div className="text-[12px]">4.73</div>
+        {/* Location */}
+        <div className="">
+          <div className="flex items-center justify-between space-x-5">
+            <div className="font-light text-lg leading-3 capitalize truncate py-1">
+              {data.title}
+            </div>
+            <div className="flex space-x-2 items-center">
+              <BsFillStarFill className="fill-yellow-500" />
+              <div className="text-[12px]">4.73</div>
+            </div>
           </div>
-        </div>
-        <div className="font-semibold text-lg text-[12px] text-neutral-500">
-          {location?.region}, {location?.label}
+          <div className="font-semibold text-lg text-[12px] text-neutral-500">
+            {location?.region}, {location?.label}
+          </div>
         </div>
         <div className="flex items-center justify-between">
           {/* Listing details */}
@@ -155,14 +162,6 @@ const ListingCard: React.FC<ListingCardProps> = ({
             </div>
           </div>
         </div>
-        {onAction && actionLabel && (
-          <Button
-            disabled={disabled}
-            small
-            label={actionLabel}
-            onClick={handleCancel}
-          />
-        )}
       </div>
     </div>
   );
