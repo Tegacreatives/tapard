@@ -64,8 +64,8 @@ const Categories = () => {
   }
 
   return (
-    <Container>
-      <div className=" justify-between items-center hidden md:flex">
+    <div className="border-b pb-3">
+      <div className=" justify-between items-center hidden md:flex max-w-[80vw] m-auto">
         {categories.map((item) => (
           <CategoryBox
             key={item.categoryName}
@@ -75,7 +75,7 @@ const Categories = () => {
           />
         ))}
       </div>
-    </Container>
+    </div>
   );
 };
 

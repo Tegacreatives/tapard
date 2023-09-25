@@ -22,7 +22,7 @@ export default async function Home({ searchParams }: HomeProps) {
     );
   }
   return (
-    <div className="pt-[7rem]">
+    <div className="pt-[6.5rem]">
       <Categories />
       <Container>
         <div
