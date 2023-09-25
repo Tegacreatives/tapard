@@ -131,7 +131,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
               <div className="text-sm">4.73</div>
             </div>
           </div>
-          <div className="font-semibold text-sm text-neutral-400 truncate">
+          <div className="font-light text-[12px] text-neutral-400 truncate">
             {location?.region}, {location?.label}
           </div>
         </div>
