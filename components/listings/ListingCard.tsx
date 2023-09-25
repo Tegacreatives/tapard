@@ -4,6 +4,9 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useCallback, useMemo } from "react";
 import { Listing, Reservation, User } from "@prisma/client";
+import { MdBed } from "react-icons/md";
+import { BiSolidBath } from "react-icons/bi";
+import { BsPeopleFill, BsFillStarFill } from "react-icons/bs";
 
 import useCountries from "@/app/hooks/useCountries";
 
@@ -72,11 +75,11 @@ const ListingCard: React.FC<ListingCardProps> = ({
       onClick={() => router.push(`/listings/${data.id}`)}
       className="col-span-1 cursor-pointer group"
     >
-      <div className="flex flex-col gap-2 w-full">
+      <div className="flex flex-col gap-2 w-full h-[80%]">
         <div
           className="
             aspect-square 
-            w-full 
+            w-full
             relative 
             overflow-hidden 
             rounded-xl
@@ -104,15 +107,50 @@ const ListingCard: React.FC<ListingCardProps> = ({
             <HeartButton listingId={data.id} currentUser={currentUser} />
           </div>
         </div>
-        <div className="font-semibold text-lg">
-          {location?.region}, {location?.label}
-        </div>
-        <div className="font-light text-neutral-500">
+
+        <div className="bg-gray-200 text-center px-[9px] py-1 max-w-max font-light text-[12px] rounded-full mx-1">
           {reservationDate || data.category}
         </div>
-        <div className="flex flex-row items-center gap-1">
-          <div className="font-semibold">$ {price}</div>
-          {!reservation && <div className="font-light">night</div>}
+        <div className="flex items-center justify-between">
+          <div className="font-light text-lg">{data.title}</div>
+          <div className="flex space-x-2 items-center">
+            <BsFillStarFill className="fill-yellow-500" />
+            <div className="text-[12px]">4.73</div>
+          </div>
+        </div>
+        <div className="font-semibold text-lg text-[12px] text-neutral-500">
+          {location?.region}, {location?.label}
+        </div>
+        <div className="flex items-center justify-between">
+          {/* Listing details */}
+          <div className="border flex items-start space-x-2 border-neutral-gray-400 px-[9px] py-1 rounded-full">
+            <div className="flex space-x-1 items-center justify-between">
+              <MdBed />
+              <div className="text-[12px]">{data.roomCount}</div>
+            </div>
+            <div className="flex space-x-1 items-center justify-between">
+              <BiSolidBath />
+              <div className="text-[12px]">{data.bathroomCount}</div>
+            </div>
+            <div className="flex space-x-1 items-center justify-between">
+              <BsPeopleFill />
+              <div className="text-[12px]">{data.guestCount}</div>
+            </div>
+          </div>
+          {/* Listing Price */}
+          <div className="flex flex-row items-center space-x-1">
+            <div className="text-[13px] text-red-500 line-through">$90</div>
+            <div>
+              <div className="flex flex-row items-center gap-[3px]">
+                <div className="font-semibold">${price}</div>
+                {!reservation && (
+                  <div className="font-light text-[12px] text-neutral-500">
+                    /n
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
         </div>
         {onAction && actionLabel && (
           <Button
