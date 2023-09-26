@@ -8,7 +8,7 @@ const Logo = () => {
       className="hidden md:block cursor-pointer font-bold text-[2rem] text-red-600"
       onClick={() => router.push("/")}
     >
-      .Hide..
+      .Tapard..
     </div>
   );
 };

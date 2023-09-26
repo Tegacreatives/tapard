@@ -155,10 +155,10 @@ const ListingCard: React.FC<ListingCardProps> = ({
           </div>
           {/* Listing Price */}
           <div className="flex flex-row items-center space-x-1">
-            <div className="text-sm text-red-500 line-through">$2,000</div>
+            <div className="text-sm text-red-500 line-through">₦2,000</div>
             <div>
               <div className="flex flex-row items-center gap-[3px]">
-                <div className="font-semibold">${price}</div>
+                <div className="font-semibold">₦{price}</div>
                 {!reservation && (
                   <div className="font-light text-sm text-neutral-500">/n</div>
                 )}

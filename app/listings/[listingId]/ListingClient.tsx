@@ -62,16 +62,15 @@ const ListingClient = ({
     setIsLoading(true);
 
     axios
-      .post("/api/reservations", {
+      .post("/api/payment", {
         totalPrice,
         startDate: dateRange.startDate,
         endDate: dateRange.endDate,
         listingId: listing?.id,
       })
-      .then(() => {
-        toast.success("Listing reserved!");
-        setDateRange(initialDateRange);
-        router.push("/trips");
+      .then((response) => {
+        const authorizationUrl = response.data.data.authorization_url;
+        router.push(authorizationUrl);
       })
       .catch(() => {
         toast.error("Something went wrong.");
@@ -79,7 +78,15 @@ const ListingClient = ({
       .finally(() => {
         setIsLoading(false);
       });
-  }, [totalPrice, dateRange, listing?.id, router, currentUser, loginModal]);
+  }, [
+    currentUser,
+    totalPrice,
+    dateRange.startDate,
+    dateRange.endDate,
+    listing?.id,
+    loginModal,
+    router,
+  ]);
 
   useEffect(() => {
     if (dateRange.startDate && dateRange.endDate) {
