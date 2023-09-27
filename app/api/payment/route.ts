@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
   const currentUser = await getCurrentUser();
-  const callback = getCallbackUrl();
+  const callback = await getCallbackUrl();
 
   if (!currentUser) {
     return NextResponse.error();
@@ -27,7 +27,7 @@ export async function POST(request: Request) {
     method: "POST",
     headers: {
       Authorization: `Bearer ${process.env.PAYSTACK_SECRET_KEY}`,
-      Content_type: "application/json",
+      Content_Type: "application/json",
     },
     body: JSON.stringify(pay),
   });
