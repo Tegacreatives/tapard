@@ -12,6 +12,8 @@ On the backend the application uses MongoDB hosted on MongoDB atlas as the datab
 For apartment booking, I've integrated paystack as a secure means for payment, a user can pay with card or bank transfer.
 The application is hosted on vercel.
 
+View live project on [tapard.vercel.app](https://tapard.vercel.app/)
+
 ## Future Development
 
 Although I've completed the development of the application, there's a lot I can still do to improve the application, here are some of the plans I have for the application with more time to work on it.
