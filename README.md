@@ -3,7 +3,7 @@
 
 Tapard is a home listing application for home owners or agencies to list out apartments or available spaces for rent per night.
 
-![Tapard 1](https://raw.githubusercontent.com/Tegacreatives/tapard/main/public/images/demo/tapard.jpg)
+![Tapard 1](https://github.com/Tegacreatives/tapard/blob/main/public/images/demo/tapard2.jpg?raw=true)
 
 ## Brief summary of the development tools
 
