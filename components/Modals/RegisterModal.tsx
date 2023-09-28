@@ -112,6 +112,7 @@ const RegisterModal = () => {
             Log in
           </span>
         </p>
+        <div>Visit the login page for demo login details</div>
       </div>
     </div>
   );

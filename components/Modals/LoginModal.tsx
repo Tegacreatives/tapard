@@ -110,6 +110,7 @@ const LoginModal = () => {
             Sign Up
           </span>
         </p>
+        <div>Demo Login: test@gmail.com | 12345678@12</div>
       </div>
     </div>
   );
