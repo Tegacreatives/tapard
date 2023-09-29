@@ -50,6 +50,7 @@ const UserMenu = ({ currentUser }: UserMenuProps) => {
           <Image src="/images/flag.png" height="25" width="25" alt="Flag" />
         </div>
         <div
+          data-testid="dropdown-button"
           onClick={toogleOpen}
           className="b-4 p-3 md:py-1 md:px-[5px] border-[1px] border-neutral-200 flex flex-row items-center gap-3 rounded-full cursor-pointer hover:shadow-md transition"
         >
@@ -86,13 +87,21 @@ const UserMenu = ({ currentUser }: UserMenuProps) => {
                   onClick={() => router.push("/favorites")}
                   label="My Favorites"
                 />
-                <MenuItem onClick={onRent} label="Add a property" />
+                <MenuItem
+                  testId="add-property"
+                  onClick={onRent}
+                  label="Add a property"
+                />
                 <hr />
                 <MenuItem onClick={() => signOut()} label="Sign out" />
               </>
             ) : (
               <>
-                <MenuItem onClick={loginModal.onOpen} label="Login" />
+                <MenuItem
+                  testId="login-popup"
+                  onClick={loginModal.onOpen}
+                  label="Login"
+                />
                 <MenuItem onClick={registerModal.onOpen} label="Sign up" />
               </>
             )}

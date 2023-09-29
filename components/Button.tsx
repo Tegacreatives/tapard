@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React from "react";
 import { IconType } from "react-icons";
 interface ButtonProps {
@@ -8,6 +8,7 @@ interface ButtonProps {
   outline?: boolean;
   small?: boolean;
   icon?: IconType;
+  dataId?: string;
 }
 const Button: React.FC<ButtonProps> = ({
   label,
@@ -16,9 +17,11 @@ const Button: React.FC<ButtonProps> = ({
   outline,
   small,
   icon: Icon,
+  dataId,
 }) => {
   return (
     <button
+      data-testid={dataId}
       onClick={onClick}
       disabled={disabled}
       className={`

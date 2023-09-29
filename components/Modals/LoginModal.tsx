@@ -60,6 +60,7 @@ const LoginModal = () => {
     <div className="flex flex-col gap-4">
       <Heading title="Welcome Back" subtitle="Login to your account" />
       <Input
+        testId="email-input"
         id="email"
         label="Email"
         register={register}
@@ -68,6 +69,7 @@ const LoginModal = () => {
         required
       />
       <Input
+        testId="password-input"
         id="password"
         label="Password"
         type="password"
@@ -124,6 +126,8 @@ const LoginModal = () => {
       onSubmit={handleSubmit(onSubmit)}
       body={bodyContent}
       footer={footerContent}
+      testId="login-form"
+      buttonTestId="login-button"
     />
   );
 };

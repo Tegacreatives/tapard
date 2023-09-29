@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "TSC_OPTIONS='--module es2015' next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -48,6 +48,7 @@
     "@types/bcrypt": "^5.0.0",
     "@types/leaflet": "^1.9.3",
     "@types/react-date-range": "^1.4.4",
+    "cypress": "^13.3.0",
     "prisma": "^5.1.1"
   }
 }
