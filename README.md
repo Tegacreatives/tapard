@@ -11,6 +11,7 @@ The application is built with next.js 13 utilizing the app router, tailwindCss f
 On the backend the application uses MongoDB hosted on [MongoDB atlas](https://www.mongodb.com/atlas/database) as the database and prisma as the ORM and for querying of data. For user authentication, I've decided to go with [Next-Auth](https://next-auth.js.org/) enabling sign-in with google or using email and password credentials.
 For apartment booking, I've integrated [paystack](https://paystack.com/) as a secure means for payment, a user can pay with card or bank transfer.
 The application is hosted on vercel.
+I used cypress for e2e testing to spped up application testing and make sure it works as expected.
 
 View live project on [tapard.vercel.app](https://tapard.vercel.app/)
 
@@ -18,8 +19,8 @@ View live project on [tapard.vercel.app](https://tapard.vercel.app/)
 
 Although I've completed the development of the application, there's a lot I can still do to improve the application, here are some of the plans I have for the application with more time to work on it.
 
-### QA Testing
-With [Cypress](https://www.cypress.io/), I can speed up the development workflow while also ensuring the appication works as expected by setting up e2e testing and also setup CI/CD pipeline using github actions
+### Improve QA Testing
+The project uses [Cypress](https://www.cypress.io/), for e2e testing accounting for user sign in,listing reservation and successful payment. With time I could create more test cases.
 
 ### Email Integration
 When users make a reservation, they should get an email with the details of their booking.
