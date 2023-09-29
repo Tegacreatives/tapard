@@ -74,6 +74,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
     <div
       onClick={() => router.push(`/listings/${data.id}`)}
       className="col-span-1 cursor-pointer group"
+      id="listing"
     >
       <div className="flex flex-col space-y-3 h-full lg:h-[40vh]">
         {/* Image */}
